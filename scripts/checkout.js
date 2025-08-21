@@ -9,7 +9,7 @@ const deliveryDate = today.add(7,'days')
 console.log(deliveryDate.format('dddd, MMMM D'));
 
 
-let cartSummaryHTML
+let cartSummaryHTML ='';
 
 
 cart.forEach((cartItem) => {
@@ -87,18 +87,21 @@ function deliveryOptionsHTML(matchingItem) {
 
         html+=`<div class="delivery-option">
                   <input type="radio"
+                  checked 
                     class="delivery-option-input"
                     name="delivery-option-${matchingItem.id}">
                   <div>
-                    <div class="delivery-option-date">
+                  <div class="delivery-option-date">
                       ${dateString}
-                    </div>
-                    <div class="delivery-option-price">
+                  </div>
+                  <div class="delivery-option-price">
                       ${priceString} Shipping
-                    </div>
-          </div>`
-        return html;
+                  </div>
+          </div>
+</div>`
+
     })
+    return html;
 }
 
 document.querySelectorAll('.js-delete-link').forEach((link) => {
