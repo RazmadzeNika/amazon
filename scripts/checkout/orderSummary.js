@@ -156,3 +156,4 @@ export function updateCartQuantity() {
 }
 
 renderOrderSummary();
+console.log("hello");
