@@ -3,9 +3,8 @@ import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js";
 
-let paymentSummaryHTML = "";
-
 export function renderPaymentSummary() {
+  let paymentSummaryHTML = "";
   let productPriceCents = 0;
   let shippingPriceCents = 0;
 
@@ -21,7 +20,7 @@ export function renderPaymentSummary() {
   const taxCents = totalBeforeTaxCents * 0.1;
   const totalCents = totalBeforeTaxCents + taxCents;
 
-  paymentSummaryHTML += `
+  paymentSummaryHTML = `
           <div class="payment-summary-title">
             Order Summary
           </div>
