@@ -119,6 +119,7 @@ data-delivery-option-id="${deliveryOption.id}"
       );
       container.remove();
       renderPaymentSummary();
+      updateCartQuantity();
     });
   });
 
@@ -156,4 +157,3 @@ export function updateCartQuantity() {
 }
 
 renderOrderSummary();
-console.log("hello");

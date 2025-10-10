@@ -4,9 +4,10 @@ import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js";
 
 export function renderPaymentSummary() {
-  let paymentSummaryHTML = "";
+  let paymentSummaryHTML;
   let productPriceCents = 0;
   let shippingPriceCents = 0;
+  let cart = JSON.parse(localStorage.getItem("cart"));
 
   cart.forEach((cartItem) => {
     const product = getProduct(cartItem.productId);
