@@ -8,6 +8,11 @@ export function renderPaymentSummary() {
   let productPriceCents = 0;
   let shippingPriceCents = 0;
   let cart = JSON.parse(localStorage.getItem("cart"));
+  let quantity = 0;
+
+  cart.forEach((cartItem) => {
+    quantity += cartItem.quantity;
+  });
 
   cart.forEach((cartItem) => {
     const product = getProduct(cartItem.productId);
@@ -27,7 +32,7 @@ export function renderPaymentSummary() {
           </div>
 
           <div class="payment-summary-row">
-            <div>Items ():</div>
+            <div>Items (${quantity}):</div>
             <div class="payment-summary-money">${formatCurrency(productPriceCents)}</div>
           </div>
 
