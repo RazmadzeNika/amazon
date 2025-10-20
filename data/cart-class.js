@@ -82,12 +82,4 @@ class Cart {
 }
 
 export const cart = new Cart('cart-oop');
-const businessCart = new Cart('business-cart');
-
-
-console.log(cart);
-console.log(businessCart);
-
-console.log(businessCart instanceof Cart);
-
-
+new Cart('business-cart');
