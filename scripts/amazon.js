@@ -1,6 +1,5 @@
-import {cart, addToCart} from '../data/cart.js';
+import {cart} from '../data/cart-class.js';
 import {products} from '../data/products.js';
-import {formatCurrency} from './utils/money.js';
 
 let productsHTML = '';
 
@@ -9,7 +8,7 @@ products.forEach((product) => {
     <div class="product-container">
       <div class="product-image-container">
         <img class="product-image"
-          src="${product.image}">
+          src="${product.image}" alt="">
       </div>
 
       <div class="product-name limit-text-to-2-lines">
@@ -18,7 +17,7 @@ products.forEach((product) => {
 
       <div class="product-rating-container">
         <img class="product-rating-stars"
-          src="${product.getStarsUrl()}">
+          src="${product.getStarsUrl()}" alt="">
         <div class="product-rating-count link-primary">
           ${product.rating.count}
         </div>
@@ -48,7 +47,7 @@ products.forEach((product) => {
       <div class="product-spacer"></div>
 
       <div class="added-to-cart">
-        <img src="images/icons/checkmark.png">
+        <img src="images/icons/checkmark.png" alt="">
         Added
       </div>
 
@@ -65,7 +64,7 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML;
 function updateCartQuantity() {
     let cartQuantity = 0;
 
-    cart.forEach((cartItem) => {
+    cart.cartItems.forEach((cartItem) => {
         cartQuantity += cartItem.quantity;
     });
 
@@ -77,7 +76,7 @@ document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
         button.addEventListener('click', () => {
             const productId = button.dataset.productId;
-            addToCart(productId);
+            cart.addToCart(productId);
             updateCartQuantity();
         });
     });
