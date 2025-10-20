@@ -5,6 +5,7 @@ class Cart {
     constructor(localStorageKey) {
         this.#localStorageKey = localStorageKey;
         this.#loadFromStorage()
+
     }
 
     #loadFromStorage() {
@@ -21,6 +22,7 @@ class Cart {
                 deliveryOptionId: '2'
             }];
         }
+
     }
 
     saveToStorage() {
@@ -76,6 +78,7 @@ class Cart {
 
         cart.saveToStorage();
     }
+
 }
 
 export const cart = new Cart('cart-oop');
