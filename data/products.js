@@ -87,8 +87,10 @@ export function loadProductsFetch() {
             }
             return new Product(productDetails)
         });
-    });
+    }).catch((error) => {
+        console.log(error);
 
+    });
 }
 
 // loadProductsFetch().then(() => {
