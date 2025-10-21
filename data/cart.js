@@ -1,5 +1,3 @@
-import {products} from "./products.js";
-
 export let cart;
 
 loadFromStorage();
@@ -46,43 +44,20 @@ export function addToCart(productId) {
     saveToStorage();
 }
 
-export function removeFromCart(productId) {
-    const newCart = [];
-
-    cart.forEach((cartItem) => {
-        if (cartItem.productId !== productId) {
-            newCart.push(cartItem);
-        }
-    });
-
-    cart = newCart;
-
-    saveToStorage();
-}
-
-export function updateDeliveryOption(productId, deliveryOptionId) {
-    let matchingItem;
-
-    cart.forEach((cartItem) => {
-        if (productId === cartItem.productId) {
-            matchingItem = cartItem;
-        }
-    });
-
-    matchingItem.deliveryOptionId = deliveryOptionId;
-
-    saveToStorage();
-}
-
-export function loadCart(fun) {
-    const xhr = new XMLHttpRequest()
-
-    xhr.addEventListener('load', () => {
-        console.log(xhr.response)
-        fun();
-
+export function loadCartFetch() {
+    fetch('https://supersimplebackend.dev/cart').then((response) => {
+        return response
     })
-
-    xhr.open('GET', 'https://supersimplebackend.dev/cart');
-    xhr.send()
 }
+
+// export function loadCart(fun) {
+//     const xhr = new XMLHttpRequest()
+//
+//     xhr.addEventListener('load', () => {
+//         fun();
+//
+//     })
+//
+//     xhr.open('GET', 'https://supersimplebackend.dev/cart');
+//     xhr.send()
+// }
