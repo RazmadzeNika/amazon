@@ -24,6 +24,7 @@ class Product {
         this.image = productDetails.image;
         this.name = productDetails.name;
         this.rating = productDetails.rating;
+        this.rating.stars = productDetails.rating.stars;
         this.priceCents = productDetails.priceCents;
     }
 
@@ -86,7 +87,6 @@ export function loadProducts(fun) {
             }
             return new Product(productDetails)
         });
-        console.log('load products');
         fun();
 
     })
@@ -95,7 +95,6 @@ export function loadProducts(fun) {
     xhr.send()
 }
 
-loadProducts();
 
 // export const products = [
 //     {
